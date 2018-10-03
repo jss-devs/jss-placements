@@ -9,15 +9,15 @@
 	git clone <repo-url>
 	```
 1. (To update your forked repository with the original repository) -
-  1. Add remote named `upstream` to refer to the original GitHub repository - 
+   * Add remote named `upstream` to refer to the original GitHub repository - 
      ```git remote add upstream <original-repo-url>```
-  1. Makes sure you are on master -
+   * Makes sure you are on master -
      ```git checkout master```
-  1. Fetches all branches of that remote - 
+   * Fetches all branches of that remote - 
      ```git fetch upstream```
-  1. Rewrites your master branch so that commits that are not in upstream/master are replayed on top of your master branch - 
+   * Rewrites your master branch so that commits that are not in upstream/master are replayed on top of your master branch - 
      ```git rebase upstream/master```
-  1. After this, you might need to force push your origin master -
+   * After this, you might need to force push your origin master -
      ```git push -f origin master```
 1. Create a new branch for new feature/bug fix etc - 
 		```git branch <name of branch>```
