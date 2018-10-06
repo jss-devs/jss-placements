@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="PHPStan" default="check">
+
+	<target name="check" depends="
+		composer-validate,
+		composer-install,
+		composer-normalize-check,
+		lint,
+		cs,
+		test-configuration-validate,
+		tests,
+		phpstan
+	"/>
+
+	<target name="composer-validate">
+		<exec
+				executable="composer"
+				logoutput="true"
+				passthru="true"
+				checkreturn="true"
+		>
+			<arg value="validate"/>
+			<arg value="--ansi"/>
+		</exec>
+	</target>
+
+	<target name="composer-install">
+		<exec
+				executable="composer"
+				logoutput="true"
+				passthru="true"
+				checkreturn="true"
+		>
+			<arg value="install"/>
+			<arg value="--ansi"/>
+		</exec>
+	</target>
+
+	<target name="composer-normalize-check">
+		<exec
+				executable="composer"
+				logoutput="true"
+				passthru="true"
+				checkreturn="true"
+		>
+			<arg value="normalize"/>
+			<arg value="--ansi"/>
+			<arg value="--dry-run"/>
+		</exec>
+	</target>
+
+	<target name="composer-normalize-fix">
+		<exec
+				executable="composer"
+				logoutput="true"
+				passthru="true"
+				checkreturn="true"
+		>
+			<arg value="normalize"/>
+			<arg value="--ansi"/>
+		</exec>
+	</target>
+
+	<target name="lint">
+		<exec
+				executable="vendor/bin/parallel-lint"
+				logoutput="true"
+				passthru="true"
+				checkreturn="true"
+		>
+			<arg value="--colors"/>
+			<arg value="--exclude"/>
+			<arg path="tests/PHPStan/Analyser/data"/>
+			<arg value="--exclude"/>
+			<arg path="tests/PHPStan/Rules/Methods/data"/>
+			<arg value="--exclude"/>
+			<arg path="tests/PHPStan/Rules/Functions/data"/>
+			<arg value="--exclude"/>
+			<arg path="tests/PHPStan/Rules/Operators/data/invalid-inc-dec.php"/>
+			<arg path="src" />
+			<arg path="tests" />
+		</exec>
+	</target>
+
+	<target name="cs">
+		<exec
+				executable="vendor/bin/phpcs"
+				logoutput="true"
+				passthru="true"
+				checkreturn="true"
+		>
+			<arg value="--colors"/>
+			<arg value="--extensions=php"/>
+			<arg value="--encoding=utf-8"/>
+			<arg value="--tab-width=4"/>
+			<arg value="--ignore=tests/*/data,tests/*/traits,tests/notAutoloaded,src/Reflection/SignatureMap/functionMap.php"/>
+			<arg value="-sp"/>
+			<arg path="src"/>
+			<arg path="tests"/>
+		</exec>
+	</target>
+
+	<target name="cs-fix">
+		<exec
+				executable="vendor/bin/phpcbf"
+				logoutput="true"
+				passthru="true"
+				checkreturn="true"
+		>
+			<arg value="--colors"/>
+			<arg value="--extensions=php"/>
+			<arg value="--encoding=utf-8"/>
+			<arg value="--tab-width=4"/>
+			<arg value="-sp"/>
+			<arg path="src"/>
+			<arg path="tests"/>
+		</exec>
+	</target>
+
+	<target name="test-configuration-validate" depends="composer-install">
+		<xmllint schema="vendor/phpunit/phpunit/phpunit.xsd" file="tests/phpunit.xml"/>
+	</target>
+
+	<target name="tests">
+		<if>
+			<os family="windows"/>
+			<then>
+				<property name="phpunit.executable" value="vendor/bin/phpunit"/>
+			</then>
+			<else>
+				<property name="phpunit.executable" value="vendor/bin/paratest"/>
+			</else>
+		</if>
+		<exec
+				executable="${phpunit.executable}"
+				logoutput="true"
+				passthru="true"
+				checkreturn="true"
+		>
+			<arg value="-c"/>
+			<arg value="tests/phpunit.xml"/>
+			<arg path="tests"/>
+		</exec>
+	</target>
+
+	<target name="phpstan">
+		<property name="phpstan.config" value="build/phpstan-generated.neon"/>
+		<touch file="${phpstan.config}"/>
+		<append
+			destFile="${phpstan.config}"
+			text="includes: [ phpstan.neon"
+			append="false"
+		></append>
+		<if>
+			<os family="windows" />
+			<then>
+				<append
+						destFile="${phpstan.config}"
+						text=", ignore-windows-errors.neon"
+				></append>
+			</then>
+		</if>
+		<append
+				destFile="${phpstan.config}"
+				text=" ]"
+		></append>
+		<exec
+				executable="php"
+				logoutput="true"
+				passthru="true"
+				checkreturn="true"
+		>
+			<arg value="-d"/>
+			<arg value="memory_limit=512M"/>
+			<arg path="bin/phpstan"/>
+			<arg value="analyse"/>
+			<arg value="-c"/>
+			<arg path="${phpstan.config}"/>
+			<arg value="-l"/>
+			<arg value="7"/>
+			<arg value="--ansi"/>
+			<arg path="build/PHPStan"/>
+			<arg path="src"/>
+			<arg path="tests"/>
+		</exec>
+	</target>
+
+</project>
