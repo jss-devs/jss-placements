@@ -12,6 +12,7 @@ before_install:
   - php artisan key:generate
   - mysql -e 'CREATE DATABASE jss_placements;'
   - php artisan migrate
+  - php artisan storage:link
 
 script:
   - mkdir -p build/logs
