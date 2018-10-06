@@ -1,7 +1,13 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import { Button } from 'antd';
 
-const Button = () => (
-  <button>Button</button>
+const SignupButton = (props) => (
+  <Link to="/auth/signup" {...props}><Button type="primary" size="large" block>Signup</Button></Link>
 )
 
-export { Button }
+const LoginButton = (props) => (
+  <Link to="/auth/login" {...props}><Button size="large" block>Login</Button></Link>
+)
+
+export { SignupButton, LoginButton }

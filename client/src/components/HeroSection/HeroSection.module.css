@@ -1,0 +1,32 @@
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 100px);
+}
+
+.content {
+  padding: 20px 0;
+}
+
+.heading {
+  color: #444;
+  font-size: 40px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 24px;
+}
+
+.action {
+  display: flex;
+}
+
+.signupButton, .loginButton {
+  width: 160px;
+}
+
+.signupButton {
+  margin-right: 5px;
+}
