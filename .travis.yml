@@ -13,11 +13,11 @@ before_install:
   - mysql -e 'CREATE DATABASE jss_placements;'
   - php artisan migrate
   - php artisan storage:link
-  - php vendor/bin/phpcbf --standard=ruleset.xml app/
 
 script:
   - mkdir -p build/logs
   - php vendor/bin/phpunit tests/ --coverage-clover build/logs/clover.xml
+  - php vendor/bin/phpcbf --runtime-set ignore_warnings_on_exit true --standard=ruleset.xml app/
   - php vendor/bin/phpcs --standard=ruleset.xml app/
   - php vendor/bin/phpstan analyse app/
   - php artisan self-diagnosis
