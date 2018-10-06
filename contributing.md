@@ -34,5 +34,5 @@ or to add all modified files
 ```git push origin "<name of branch>"```
 1. Create a PR on GitHub.
 
-###Happy Contributing.
+### Happy Contributing.
 
