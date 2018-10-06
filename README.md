@@ -1,4 +1,7 @@
 # JSS Placements
+
+[![Build Status](https://travis-ci.org/ankitjain28may/jss-placements.svg?branch=master)](https://travis-ci.org/ankitjain28may/jss-placements)
+
 An application for digitizing and automating placement procedure of JSSATE College.
 
 ## Contributors
