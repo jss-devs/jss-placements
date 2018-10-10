@@ -1,0 +1,54 @@
+.ant-tag {
+  float: right;
+  margin-bottom: 8px;
+  border-radius: 100px;
+  padding: 1% 4%;
+  color: white;
+}
+
+.cardContainer {
+  display: inline-block;
+  margin: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 20px 10px rgb(228, 223, 223);
+  width: 80%;
+  padding: 20px;
+  border-radius: 2%;
+}
+
+.cardContainer .topRow {
+  display: inline-block;
+  width: 100%;
+}
+.cardContainer .secondRow {
+  display: inline-block;
+  width: 100%;
+}
+.cardContainer .topRow h1 {
+  line-height: 1;
+  margin: 0;
+  font-size: 1.7rem;
+  float: left;
+}
+
+.cardContainer .topRow p {
+  margin-top: 0;
+  float: right;
+}
+
+.cardContainer .secondRow h3 {
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #a2a2a2;
+  margin-top: 5px;
+  float: left;
+}
+.cardContainer .secondRow p {
+  float: right;
+  margin: 0;
+}
+
+.cardContainer .content {
+  margin: 0;
+}
