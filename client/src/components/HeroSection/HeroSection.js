@@ -16,6 +16,6 @@ const HeroSection = () => (
       <LoginButton className={classes.loginButton} />
     </nav>
   </section>
-)
+);
 
 export { HeroSection };
