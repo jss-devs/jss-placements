@@ -1,7 +1,5 @@
-import React from "react";
+import React from 'react';
 
-const Manage = () => (
-  <h1>Manage</h1>
-)
+const Manage = () => <h1>Manage</h1>;
 
 export { Manage };
