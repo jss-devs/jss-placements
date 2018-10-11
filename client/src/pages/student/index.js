@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import { CheckMobile } from '../../components/CheckMobile';
-import { SelectionStatus } from '../../components/SelectionStatus';
 import { Notices } from './notices';
 import { Notifs } from './notifs';
 
