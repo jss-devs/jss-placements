@@ -1,0 +1,30 @@
+.jobCard{
+  width: 360px;
+  padding: 14px;
+  background-color: #fff;
+  border-radius: 2%;
+  box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.jobCard > aside, .jobCard > span {
+  margin-left: auto;
+}
+
+.jobCard > main {
+  margin-bottom: 10px;
+}
+
+.jobCard > p {
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+.antTag {
+  margin: 0;
+  margin-left: auto;
+  border-radius: 14px;
+  padding: 0px 12px;
+  color: #fff;
+}
