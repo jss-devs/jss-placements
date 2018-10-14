@@ -17,4 +17,4 @@ const SelectionStatus = ({ status }) => {
   return <Tag color={color}>{text}</Tag>;
 };
 
-export { SelectionStatus };
+export default SelectionStatus ;
