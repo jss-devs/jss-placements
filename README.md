@@ -12,4 +12,4 @@ An application for digitizing and automating placement procedure of JSSATE Colle
 1. [Anurag Sachdeva](https://github.com/anuragsachdeva28)
 1. [Archit Kaushik](https://github.com/architkshk)
 1. [Suyash Gupta](https://github.com/gitSuyash)
-1. [Suyash]
+
