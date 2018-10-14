@@ -9,7 +9,7 @@ const App = () => (
   <div className="app">
     <Pages />
   </div>
-)
+);
 
 if (module.hot) {
   module.hot.accept();

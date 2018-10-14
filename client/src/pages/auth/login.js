@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => (
   <div>
@@ -8,6 +8,6 @@ const Login = () => (
     <Link to="/management/placements">Management</Link>
     <Link to="/student/notices">Student</Link>
   </div>
-)
+);
 
 export { Login };
