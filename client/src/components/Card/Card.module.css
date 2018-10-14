@@ -17,23 +17,22 @@
 }
 
 .cardContainer .topRow {
-  display: inline-block;
+  display: flex;
   width: 100%;
 }
 .cardContainer .secondRow {
-  display: inline-block;
+  display: flex;
   width: 100%;
 }
 .cardContainer .topRow h1 {
   line-height: 1;
   margin: 0;
   font-size: 1.7rem;
-  float: left;
+  flex: 1;
 }
 
 .cardContainer .topRow p {
   margin-top: 0;
-  float: right;
 }
 
 .cardContainer .secondRow h3 {
@@ -42,11 +41,11 @@
   text-transform: uppercase;
   color: #a2a2a2;
   margin-top: 5px;
-  float: left;
+  flex: 1;
 }
 .cardContainer .secondRow p {
-  float: right;
   margin: 0;
+  margin-top: 5px;
 }
 
 .cardContainer .content {
