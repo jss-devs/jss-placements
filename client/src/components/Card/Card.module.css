@@ -1,53 +1,45 @@
-.ant-tag {
-  float: right;
+.antTag {
+  margin-left: auto;
   margin-bottom: 8px;
   border-radius: 100px;
-  padding: 1% 4%;
+  padding: 0% 10%;
   color: white;
 }
 
 .cardContainer {
-  display: inline-block;
-  margin: 10px;
-  border: 1px solid #ccc;
-  box-shadow: 0px 0px 20px 10px rgb(228, 223, 223);
-  width: 80%;
-  padding: 20px;
+  /* font-family: 'Open Sans', sans-serif; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.card{
+  width: 340px;
+  padding: 14px;
+  background-color: #fff;
   border-radius: 2%;
+  box-shadow: 0px 0px 20px 10px rgb(228, 223, 223);
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.cardContainer .topRow {
-  display: flex;
-  width: 100%;
-}
-.cardContainer .secondRow {
-  display: flex;
-  width: 100%;
-}
-.cardContainer .topRow h1 {
-  line-height: 1;
+.card > aside, .card > span {
   margin: 0;
-  font-size: 1.7rem;
-  flex: 1;
+  margin-left: auto;
+  margin-bottom: 20px;
 }
 
-.cardContainer .topRow p {
-  margin-top: 0;
+.card > main {
+  margin-bottom: 20px;
 }
 
-.cardContainer .secondRow h3 {
-  font-size: 1rem;
-  font-weight: 300;
+.card > p {
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+h4{
   text-transform: uppercase;
   color: #a2a2a2;
-  margin-top: 5px;
-  flex: 1;
-}
-.cardContainer .secondRow p {
-  margin: 0;
-  margin-top: 5px;
-}
-
-.cardContainer .content {
-  margin: 0;
 }
