@@ -1,0 +1,37 @@
+.tabBar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 -4px 9px 0px rgba(0,0,0,0.2);
+}
+
+.tabBar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.tabItem {
+  flex: 1;
+  font-size: 18px;
+}
+
+.divider {
+  font-size: 26px;
+}
+
+.link {
+  color: #777;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.activeLink, .activeLink:visited {
+  color: #333;
+}
