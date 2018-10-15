@@ -10,7 +10,9 @@ const notices = [
     salary: '5 LPA',
     city: 'Noida',
     content:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.'
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.',
+      status: 'selected'
+
   },
   {
     companyName: 'GradeUp',
@@ -18,7 +20,8 @@ const notices = [
     salary: '5.5 LPA',
     city: 'Noida',
     content:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.'
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.',
+      status: 'pending'
   },
   {
     companyName: 'Adobe',
@@ -26,7 +29,8 @@ const notices = [
     salary: '5 LPA',
     city: 'Noida',
     content:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.'
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.',
+      status: 'selected'
   },
   {
     companyName: 'GradeUp',
@@ -34,7 +38,8 @@ const notices = [
     salary: '5.5 LPA',
     city: 'Noida',
     content:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.'
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.',
+      status: 'rejected'
   },
   {
     companyName: 'Adobe',
@@ -42,7 +47,8 @@ const notices = [
     salary: '5 LPA',
     city: 'Noida',
     content:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.'
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.',
+      status: 'selected'
   },
   {
     companyName: 'GradeUp',
@@ -50,7 +56,8 @@ const notices = [
     salary: '5.5 LPA',
     city: 'Noida',
     content:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.'
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.',
+      status: 'pending'
   }
 ];
 
