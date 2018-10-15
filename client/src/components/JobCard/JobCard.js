@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tag } from 'antd';
 import classes from './JobCard.module.css';
-import SelectionStatus from '../SelectionStatus.js';
+import { SelectionStatus } from '../SelectionStatus';
 const JobCard = ({
   companyName,
   post,
@@ -23,7 +23,7 @@ const JobCard = ({
     </aside>
     <p>{content}</p>
     <span className={classes.tags}>
-      <SelectionStatus status={status}/>
+      <SelectionStatus className={classes.antTag} status={status}/>
     </span>
   </section>
 );
