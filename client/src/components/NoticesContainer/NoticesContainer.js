@@ -11,8 +11,7 @@ const notices = [
     city: 'Noida',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.',
-      status: 'selected'
-
+    status: 'selected'
   },
   {
     companyName: 'GradeUp',
@@ -21,7 +20,7 @@ const notices = [
     city: 'Noida',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.',
-      status: 'pending'
+    status: 'pending'
   },
   {
     companyName: 'Adobe',
@@ -30,7 +29,7 @@ const notices = [
     city: 'Noida',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.',
-      status: 'selected'
+    status: 'selected'
   },
   {
     companyName: 'GradeUp',
@@ -39,7 +38,7 @@ const notices = [
     city: 'Noida',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.',
-      status: 'rejected'
+    status: 'rejected'
   },
   {
     companyName: 'Adobe',
@@ -48,7 +47,7 @@ const notices = [
     city: 'Noida',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.',
-      status: 'selected'
+    status: 'selected'
   },
   {
     companyName: 'GradeUp',
@@ -57,7 +56,7 @@ const notices = [
     city: 'Noida',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.',
-      status: 'pending'
+    status: 'pending'
   }
 ];
 

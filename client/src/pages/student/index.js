@@ -7,7 +7,7 @@ import { Notices } from './notices';
 import { Notifs } from './notifs';
 
 const StudentCommon = () => (
-  <CheckMobile 
+  <CheckMobile
     yes={
       <Fragment>
         <TabBar />
@@ -18,11 +18,12 @@ const StudentCommon = () => (
         <Link to="/student/notices">Notices</Link>
         <Link to="/student/notifs">Notifs</Link>
       </Fragment>
-    } />
+    }
+  />
 );
 
 const Student = () => (
-  <div style={{ padding: '20px 0 50px 0'}}>
+  <div style={{ padding: '20px 0 50px 0' }}>
     <Route path="/student" component={StudentCommon} />
     <Route exact path="/student/notices" component={Notices} />
     <Route exact path="/student/notifs" component={Notifs} />
