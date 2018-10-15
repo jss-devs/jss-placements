@@ -2,24 +2,32 @@ import React, { Fragment } from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import { CheckMobile } from '../../components/CheckMobile';
+import { TabBar } from '../../components/TabBar';
 import { Notices } from './notices';
 import { Notifs } from './notifs';
 
 const StudentCommon = () => (
-  <div>
-    <h1>Student Common</h1>
-    <CheckMobile yes={<h2>On Mobile</h2>} no={<h1>On Desktop</h1>} />
-    <Link to="/student/notices">Notices</Link>
-    <Link to="/student/notifs">Notifs</Link>
-  </div>
+  <CheckMobile
+    yes={
+      <Fragment>
+        <TabBar />
+      </Fragment>
+    }
+    no={
+      <Fragment>
+        <Link to="/student/notices">Notices</Link>
+        <Link to="/student/notifs">Notifs</Link>
+      </Fragment>
+    }
+  />
 );
 
 const Student = () => (
-  <Fragment>
+  <div style={{ padding: '20px 0 50px 0' }}>
     <Route path="/student" component={StudentCommon} />
     <Route exact path="/student/notices" component={Notices} />
     <Route exact path="/student/notifs" component={Notifs} />
-  </Fragment>
+  </div>
 );
 
 export { Student };
