@@ -37,6 +37,7 @@ final class Versions
   'psr/simple-cache' => '1.0.1@408d5eafb83c57f6365a3ca330ff23aa4a5fa39b',
   'psy/psysh' => 'v0.9.8@ed3c32c4304e1a678a6e0f9dc11dd2d927d89555',
   'ramsey/uuid' => '3.8.0@d09ea80159c1929d75b3f9c60504d613aeb4a1e3',
+  'spatie/laravel-permission' => '2.23.0@104e3aad0ac6f1364ec52d3f3f9d9ded0e822d82',
   'swiftmailer/swiftmailer' => 'v6.1.3@8ddcb66ac10c392d3beb54829eef8ac1438595f4',
   'symfony/console' => 'v4.1.6@dc7122fe5f6113cfaba3b3de575d31112c9aa60b',
   'symfony/css-selector' => 'v4.1.6@d67de79a70a27d93c92c47f37ece958bf8de4d8a',
@@ -109,7 +110,7 @@ final class Versions
   'symfony/yaml' => 'v4.1.6@367e689b2fdc19965be435337b50bc8adf2746c9',
   'theseer/tokenizer' => '1.1.0@cb2f008f3f05af2893a87208fe6a6c4985483f8b',
   'webmozart/assert' => '1.3.0@0df1908962e7a3071564e857d86874dad1ef204a',
-  'laravel/laravel' => 'dev-master@941ab6e073a9a8fb79d7717480d3a7a5003d5a21',
+  'laravel/laravel' => 'dev-schema@5c4d12139e725551f9c33c4396fc49a97eb11220',
 );
 
     private function __construct()
