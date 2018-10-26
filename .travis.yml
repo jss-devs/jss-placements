@@ -24,7 +24,7 @@ script:
   - php vendor/bin/phpunit tests/ --coverage-clover build/logs/clover.xml
   - php vendor/bin/phpcbf --runtime-set ignore_warnings_on_exit true --standard=ruleset.xml app/
   - php vendor/bin/phpcs --standard=ruleset.xml app/
-  - php vendor/bin/phpstan analyse app/
+  - php artisan code:analyse --level=1
   - php artisan self-diagnosis
 
 after_script:
