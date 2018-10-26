@@ -46,8 +46,6 @@ class LoginController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
-     *
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function login(Request $request)
     {
@@ -88,7 +86,7 @@ class LoginController extends Controller
      * Validate the user login request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return void
+     * @return array
      */
     protected function validateLogin(Request $request)
     {
@@ -103,7 +101,7 @@ class LoginController extends Controller
      * Send the response after the user was authenticated.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     protected function sendLoginResponse(Request $request)
     {
@@ -129,9 +127,7 @@ class LoginController extends Controller
      * Redirect the user after determining they are locked out.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return void
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     protected function sendLockoutResponse(Request $request)
     {
