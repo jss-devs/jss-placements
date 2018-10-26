@@ -7,18 +7,18 @@ import { JobCard } from '../JobCard';
 class NoticesContainer extends Component {
   state = {
     notices: []
-  }
+  };
 
-  requests = []
+  requests = [];
 
   dataMapper(notices) {
     const mapping = {
-      'company_name': 'companyName',
-      'job_profile': 'jobProfile'
-    }
+      company_name: 'companyName',
+      job_profile: 'jobProfile'
+    };
 
     notices.forEach(notice => {
-      for(let key in mapping) {
+      for (let key in mapping) {
         const newKey = mapping[key];
         notice[newKey] = notice[key];
       }
@@ -50,7 +50,7 @@ class NoticesContainer extends Component {
           <JobCard key={notice.id} className={classes.noticeCard} {...notice} />
         ))}
       </section>
-    )
+    );
   }
 }
 
