@@ -26,8 +26,6 @@ script:
 - php artisan self-diagnosis
 after_script:
 - php vendor/bin/coveralls -v
-before_deploy:
-  - cd ./server
 deploy:
   provider: heroku
   api_key:
