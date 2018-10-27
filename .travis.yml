@@ -37,6 +37,7 @@ deploy:
     repo: jss-devs/jss-placements
     branch: master
   run:
+    - "composer update --dev"
     - "php artisan migrate"
     - "php artisan db:seed"
     - "php artisan l5-swagger:generate"
