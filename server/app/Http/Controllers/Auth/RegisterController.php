@@ -53,7 +53,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:managements',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -78,6 +78,51 @@ class RegisterController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     *
+     * @SWG\Post(
+     *   path="/auth/signup",
+     *   summary="Management Signup",
+     *   tags={"Login/Signup"},
+     *   description="",
+     *   operationId="register",
+     *   consumes={"multipart/form-data"},
+     *   produces={"application/json"},
+     * @SWG\Parameter(
+     *       name="name",
+     *       in="formData",
+     *       description="User's name",
+     *       required=true,
+     *       type="string",
+     * @SWG\Items(type="string")
+     *   ),
+     * @SWG\Parameter(
+     *       name="email",
+     *       in="formData",
+     *       description="User's email",
+     *       required=true,
+     *       type="string",
+     * @SWG\Items(type="string")
+     *   ),
+     * @SWG\Parameter(
+     *       name="password",
+     *       in="formData",
+     *       description="User's password",
+     *       required=true,
+     *       type="string",
+     * @SWG\Items(type="string")
+     *   ),
+     * @SWG\Parameter(
+     *       name="password_confirmation",
+     *       in="formData",
+     *       description="Confirm password",
+     *       required=true,
+     *       type="string",
+     * @SWG\Items(type="string")
+     *   ),
+     * @SWG\Response(response="200", description="{'status':true,'data':{'name':'name',email':'email_id','mobile':'mobile','type':'management/student'}}"),
+     * @SWG\Response(response="401", description="{'status':false,'error':{'error_message'}}"),
+     * @SWG\Response(response="429", description="{'status':false,'error':{'throttle_error_message'}}"),
+     * )
      */
     public function register(Request $request)
     {
@@ -97,6 +142,7 @@ class RegisterController extends Controller
             'name' => $user->name,
             'email' => $user->email,
             'mobile' => $user->mobile,
+            'type' => 'management',
         ];
 
         return response()->json([
