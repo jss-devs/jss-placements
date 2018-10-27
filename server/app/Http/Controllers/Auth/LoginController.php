@@ -185,7 +185,7 @@ class LoginController extends Controller
      */
     protected function attemptStudentLogin(Request $request)
     {
-        return $this->guard('users')->attempt(
+        return Auth::guard('users')->attempt(
             $this->credentials($request), $request->filled('remember')
         );
     }

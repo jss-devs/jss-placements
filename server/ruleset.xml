@@ -17,5 +17,6 @@
         <exclude name="Generic.Commenting.DocComment.NonParamGroup"/>
         <exclude name="Generic.Commenting.DocComment.ShortNotCapital"/>
         <exclude name="Generic.Files.LineLength.TooLong"/>
+        <exclude name="Generic.Commenting.DocComment.TagsNotGrouped"/>
     </rule>
 </ruleset>
