@@ -135,6 +135,7 @@ class RegisterController extends Controller
         }
 
         event(new Registered($user = $this->create($request->all())));
+        $user->assignRole('management');
 
         $this->guard()->login($user);
 

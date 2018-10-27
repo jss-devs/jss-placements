@@ -25,8 +25,8 @@ class CreateJobsTable extends Migration
             $table->string('session')->nullable();
             $table->string('attachment')->nullable();
             $table->boolean('closed')->default(true);
-            $table->unsignedInteger('tpo_id');
-            $table->foreign('tpo_id')->references('id')->on('managements')->onDelete('cascade');;
+            $table->unsignedInteger('management_id');
+            $table->foreign('management_id')->references('id')->on('managements')->onDelete('cascade');;
             $table->timestamps();
         });
     }
