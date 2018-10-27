@@ -1,0 +1,149 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Placements - API",
+        "version": "1.0"
+    },
+    "paths": {
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Login/Signup"
+                ],
+                "summary": "Management/User Login",
+                "description": "",
+                "operationId": "login",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "User's email",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "User's password",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{'status':true,'data':{'name':'name',email':'email_id','mobile':'mobile','type':'management/student'}}"
+                    },
+                    "401": {
+                        "description": "{'status':false,'error':{'error_message'}}"
+                    },
+                    "429": {
+                        "description": "{'status':false,'error':{'throttle_error_message'}}"
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "Login/Signup"
+                ],
+                "summary": "Management/User Logout",
+                "description": "",
+                "operationId": "logout",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{'status':true,'message':{'auth.logout'}}"
+                    }
+                }
+            }
+        },
+        "/auth/signup": {
+            "post": {
+                "tags": [
+                    "Login/Signup"
+                ],
+                "summary": "Management Signup",
+                "description": "",
+                "operationId": "register",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "User's name",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "User's email",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "User's password",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "in": "formData",
+                        "description": "Confirm password",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{'status':true,'data':{'name':'name',email':'email_id','mobile':'mobile','type':'management/student'}}"
+                    },
+                    "401": {
+                        "description": "{'status':false,'error':{'error_message'}}"
+                    },
+                    "429": {
+                        "description": "{'status':false,'error':{'throttle_error_message'}}"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}

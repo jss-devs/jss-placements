@@ -32,6 +32,10 @@ class LoginController extends Controller
     protected $redirectTo = '/home';
 
     /**
+     * @SWG\Info(title="Placements - API", version="1.0")
+     */
+
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -46,6 +50,35 @@ class LoginController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
+     *
+     * @SWG\Post(
+     *   path="/auth/login",
+     *   summary="Management/User Login",
+     *   tags={"Login/Signup"},
+     *   description="",
+     *   operationId="login",
+     *   consumes={"multipart/form-data"},
+     *   produces={"application/json"},
+     * @SWG\Parameter(
+     *       name="email",
+     *       in="formData",
+     *       description="User's email",
+     *       required=true,
+     *       type="string",
+     * @SWG\Items(type="string")
+     *   ),
+     * @SWG\Parameter(
+     *       name="password",
+     *       in="formData",
+     *       description="User's password",
+     *       required=true,
+     *       type="string",
+     * @SWG\Items(type="string")
+     *   ),
+     * @SWG\Response(response="200", description="{'status':true,'data':{'name':'name',email':'email_id','mobile':'mobile','type':'management/student'}}"),
+     * @SWG\Response(response="401", description="{'status':false,'error':{'error_message'}}"),
+     * @SWG\Response(response="429", description="{'status':false,'error':{'throttle_error_message'}}"),
+     * )
      */
     public function login(Request $request)
     {
@@ -68,6 +101,8 @@ class LoginController extends Controller
 
         if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
+        } elseif ($this->attemptStudentLogin($request)) {
+            return $this->sendStudentLoginResponse($request);
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
@@ -115,6 +150,7 @@ class LoginController extends Controller
             'name' => $user->name,
             'email' => $user->email,
             'mobile' => $user->mobile,
+            'type' => 'management',
         ];
 
         return response()->json([
@@ -139,5 +175,75 @@ class LoginController extends Controller
             'status' => false,
             'error' => trans('auth.throttle', ['seconds' => $seconds]),
         ], 429);
+    }
+
+    /**
+     * Attempt to log the user into the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    protected function attemptStudentLogin(Request $request)
+    {
+        return $this->guard('users')->attempt(
+            $this->credentials($request), $request->filled('remember')
+        );
+    }
+
+    /**
+     * Send the response after the user was authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
+     */
+    protected function sendStudentLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        $user = Auth::user();
+
+        $data = [
+            'name' => $user->name,
+            'email' => $user->email,
+            'mobile' => $user->mobile,
+            'type' => 'student',
+        ];
+
+        return response()->json([
+            'status' => true,
+            "data" => $data,
+        ], 200);
+    }
+
+
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     *
+     * @SWG\Post(
+     *   path="/logout",
+     *   summary="Management/User Logout",
+     *   tags={"Login/Signup"},
+     *   description="",
+     *   operationId="logout",
+     *   consumes={"multipart/form-data"},
+     *   produces={"application/json"},
+     * @SWG\Response(response="200", description="{'status':true,'message':{'auth.logout'}}"),
+     * )
+     */
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        return response()->json([
+            'status' => true,
+            'message' => trans('auth.logout'),
+        ], 200);
     }
 }

@@ -37,3 +37,4 @@ deploy:
     branch: master
   run:
     - "php artisan migrate"
+    - "php artisan l5-swagger:generate"
