@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'tpo',
-        'passwords' => 'tpo',
+        'guard' => 'managements',
+        'passwords' => 'managements',
     ],
 
     /*
@@ -40,13 +40,13 @@ return [
         //     'driver' => 'session',
         //     'provider' => 'users',
         // ],
-        'users' => [
+        'students' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'students',
         ],
-        'tpo' => [
+        'managements' => [
             'driver' => 'session',
-            'provider' => 'tpo',
+            'provider' => 'managements',
         ],
     ],
 
@@ -68,11 +68,11 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'students' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\Student::class,
         ],
-        'tpo' => [
+        'managements' => [
             'driver' => 'eloquent',
             'model' => App\Models\Management::class,
         ],
@@ -99,13 +99,13 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'students' => [
+            'provider' => 'students',
             'table' => 'password_resets',
             'expire' => 60,
         ],
-        'tpo' => [
-            'provider' => 'tpo',
+        'managements' => [
+            'provider' => 'managements',
             'table' => 'password_resets',
             'expire' => 60,
         ],

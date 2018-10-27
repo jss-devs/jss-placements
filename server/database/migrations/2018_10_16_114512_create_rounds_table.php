@@ -19,8 +19,8 @@ class CreateRoundsTable extends Migration
             $table->text('description')->nullable();
             $table->json('shortlisted_students')->nullable();
             $table->unsignedInteger('job_id');
-            $table->unsignedInteger('tpo_id');
-            $table->foreign('tpo_id')->references('id')->on('managements')->onDelete('cascade');;
+            $table->unsignedInteger('management_id');
+            $table->foreign('management_id')->references('id')->on('managements')->onDelete('cascade');;
             $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');;
             $table->boolean('active')->default(true);
             $table->timestamps();

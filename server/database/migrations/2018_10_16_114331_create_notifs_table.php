@@ -18,9 +18,9 @@ class CreateNotifsTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->unsignedInteger('job_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('student_id');
             $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');;
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');;
             $table->timestamps();
         });
     }

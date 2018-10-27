@@ -1,14 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class Student extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasRoles;
+
+    protected $guard_name = 'students';
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +19,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password', 'mobile',
+        'roll_no', 'dob', 'gender', 'father_name', 'address', 'city', 'state',
+        'country', 'pincode', 'tenth_per', 'twelth_per', 'ug_per', 'pg_per',
+        'branch', 'course',
     ];
 
     /**

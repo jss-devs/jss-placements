@@ -185,7 +185,7 @@ class LoginController extends Controller
      */
     protected function attemptStudentLogin(Request $request)
     {
-        return Auth::guard('users')->attempt(
+        return Auth::guard('students')->attempt(
             $this->credentials($request), $request->filled('remember')
         );
     }
@@ -202,10 +202,10 @@ class LoginController extends Controller
 
         $this->clearLoginAttempts($request);
 
-        $user = Auth::user();
+        $user = Auth::guard('students')->user();
 
         $data = [
-            'name' => $user->name,
+            'name' => ucfirst($user->first_name . ' ' . $user->last_name),
             'email' => $user->email,
             'mobile' => $user->mobile,
             'type' => 'student',

@@ -15,6 +15,7 @@ before_install:
 - php artisan key:generate
 - mysql -e 'CREATE DATABASE jss_placements;'
 - php artisan migrate
+- php artisan db:seed
 - php artisan storage:link
 script:
 - mkdir -p build/logs
@@ -22,7 +23,7 @@ script:
 - php vendor/bin/phpcbf --runtime-set ignore_warnings_on_exit true --standard=ruleset.xml
   app/
 - php vendor/bin/phpcs --standard=ruleset.xml app/
-- php artisan code:analyse --level=1
+# - php artisan code:analyse --level=1
 - php artisan self-diagnosis
 after_script:
 - php vendor/bin/coveralls -v
@@ -37,4 +38,5 @@ deploy:
     branch: master
   run:
     - "php artisan migrate"
+    - "php artisan db:seed"
     - "php artisan l5-swagger:generate"

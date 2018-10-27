@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 class Management extends Authenticatable
 {
+    use Notifiable, HasRoles;
+
     protected $table = 'managements';
 
-    use Notifiable;
+    protected $guard_name = 'managements';
 
     /**
      * The attributes that are mass assignable.
