@@ -31,3 +31,10 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Management
+Route::group(['middleware' => ['role:management']], function () {
+
+    Route::get('/management/jobs', 'JobController@index')->name('jobs');
+
+});

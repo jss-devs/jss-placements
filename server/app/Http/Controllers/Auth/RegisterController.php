@@ -119,7 +119,7 @@ class RegisterController extends Controller
      *       type="string",
      * @SWG\Items(type="string")
      *   ),
-     * @SWG\Response(response="200", description="{'status':true,'data':{'name':'name',email':'email_id','mobile':'mobile','type':'management/student'}}"),
+     * @SWG\Response(response="200", description="{'status':true,'data':{'name':'name',email':'email_id','mobile':'mobile','role':'[management,student]'}}"),
      * @SWG\Response(response="401", description="{'status':false,'error':{'error_message'}}"),
      * @SWG\Response(response="429", description="{'status':false,'error':{'throttle_error_message'}}"),
      * )
@@ -143,7 +143,7 @@ class RegisterController extends Controller
             'name' => $user->name,
             'email' => $user->email,
             'mobile' => $user->mobile,
-            'type' => 'management',
+            'role' => $user->getRoleNames(),
         ];
 
         return response()->json([
