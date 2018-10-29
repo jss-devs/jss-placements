@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use Validator;
 
 class Student extends Authenticatable
 {
@@ -33,4 +34,29 @@ class Student extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function validator($input)
+    {
+         $validator = Validator::make($input, [
+            'first_name' => 'required|string',
+            'last_name' => 'string',
+            'email' => 'required|string|email|max:255|unique:students',
+            'mobile' => 'required|regex:/[7-9]{1}[0-9]{9}/',
+            'roll_no' => 'required|string|unique:students',
+            'dob' => 'required|string',
+            'gender' => 'required|string',
+            'father_name' => 'required|string',
+            'address' => 'required|string',
+            'city' => 'required|string',
+            'state' => 'required|string',
+            'country' => 'required|string',
+            'pincode' => 'required|string',
+            'tenth_per' => 'required|string',
+            'twelth_per' => 'required|string',
+            'ug_per' => 'required|string',
+            'branch' => 'required|string',
+            'course' => 'required|string',
+        ]);
+        return $validator;
+    }
 }

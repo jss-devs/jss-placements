@@ -21,6 +21,16 @@
                 ],
                 "parameters": [
                     {
+                        "name": "Key",
+                        "in": "header",
+                        "description": "API Key",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
                         "name": "email",
                         "in": "formData",
                         "description": "User's email",
@@ -43,7 +53,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "{'status':true,'data':{'name':'name',email':'email_id','mobile':'mobile','type':'management/student'}}"
+                        "description": "{'status':true,'data':{'name':'name',email':'email_id','mobile':'mobile','role':'[management,student]'}}"
                     },
                     "401": {
                         "description": "{'status':false,'error':{'error_message'}}"
@@ -68,6 +78,18 @@
                 "produces": [
                     "application/json"
                 ],
+                "parameters": [
+                    {
+                        "name": "Key",
+                        "in": "header",
+                        "description": "API Key",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "{'status':true,'message':{'auth.logout'}}"
@@ -90,6 +112,16 @@
                     "application/json"
                 ],
                 "parameters": [
+                    {
+                        "name": "Key",
+                        "in": "header",
+                        "description": "API Key",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
                     {
                         "name": "name",
                         "in": "formData",
@@ -133,7 +165,246 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "{'status':true,'data':{'name':'name',email':'email_id','mobile':'mobile','type':'management/student'}}"
+                        "description": "{'status':true,'data':{'name':'name',email':'email_id','mobile':'mobile','role':'[management,student]'}}"
+                    },
+                    "401": {
+                        "description": "{'status':false,'error':{'error_message'}}"
+                    },
+                    "429": {
+                        "description": "{'status':false,'error':{'throttle_error_message'}}"
+                    }
+                }
+            }
+        },
+        "/management/students": {
+            "post": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Add",
+                "description": "",
+                "operationId": "store",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Key",
+                        "in": "header",
+                        "description": "API Key",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "first_name",
+                        "in": "formData",
+                        "description": "Student's first name",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "formData",
+                        "description": "Student's last name",
+                        "required": false,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Student's email",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mobile",
+                        "in": "formData",
+                        "description": "Student's Mobile number",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "roll_no",
+                        "in": "formData",
+                        "description": "Student's University Roll number",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "dob",
+                        "in": "formData",
+                        "description": "Student's DOB",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "gender",
+                        "in": "formData",
+                        "description": "Student's Gender",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "father_name",
+                        "in": "formData",
+                        "description": "Student's father name",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "address",
+                        "in": "formData",
+                        "description": "Student's Address",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "formData",
+                        "description": "Student's City",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "formData",
+                        "description": "Student's State",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "formData",
+                        "description": "Student's Country",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pincode",
+                        "in": "formData",
+                        "description": "Student's Pincode",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tenth_per",
+                        "in": "formData",
+                        "description": "Student's 10th percentage",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "twelth_per",
+                        "in": "formData",
+                        "description": "Student's 12th percentage",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ug_per",
+                        "in": "formData",
+                        "description": "Student's UG percentage",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pg_per",
+                        "in": "formData",
+                        "description": "Student's PG percentage",
+                        "required": false,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "branch",
+                        "in": "formData",
+                        "description": "Student's Branch",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "course",
+                        "in": "formData",
+                        "description": "Student's Course",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "User's password",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{'status':true,'data':{'name':'name',email':'email_id','mobile':'mobile','role':'[management,student]'}}"
                     },
                     "401": {
                         "description": "{'status':false,'error':{'error_message'}}"

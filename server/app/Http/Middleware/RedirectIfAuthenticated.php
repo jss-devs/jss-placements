@@ -15,9 +15,9 @@ class RedirectIfAuthenticated
      * @param  string|null              $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
-        if (Auth::guard($guard)->check()) {
+        if (Auth::guard()->check() or Auth::guard('students')->check()) {
             return response()->json([
                 'status' => false,
                 'error' => trans('auth.logged_in'),

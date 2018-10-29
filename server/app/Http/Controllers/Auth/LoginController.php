@@ -60,6 +60,14 @@ class LoginController extends Controller
      *   consumes={"multipart/form-data"},
      *   produces={"application/json"},
      * @SWG\Parameter(
+     *       name="Key",
+     *       in="header",
+     *       description="API Key",
+     *       required=true,
+     *       type="string",
+     *       @SWG\Items(type="string")
+     *   ),
+     * @SWG\Parameter(
      *       name="email",
      *       in="formData",
      *       description="User's email",
@@ -208,7 +216,7 @@ class LoginController extends Controller
             'name' => ucfirst($user->first_name . ' ' . $user->last_name),
             'email' => $user->email,
             'mobile' => $user->mobile,
-            'role' => $user->getRoleNames(),
+            'role' => Auth::guard('students')->user(),
         ];
 
         return response()->json([
@@ -232,6 +240,14 @@ class LoginController extends Controller
      *   operationId="logout",
      *   consumes={"multipart/form-data"},
      *   produces={"application/json"},
+     * @SWG\Parameter(
+     *       name="Key",
+     *       in="header",
+     *       description="API Key",
+     *       required=true,
+     *       type="string",
+     *       @SWG\Items(type="string")
+     *   ),
      * @SWG\Response(response="200", description="{'status':true,'message':{'auth.logout'}}"),
      * )
      */

@@ -88,6 +88,14 @@ class RegisterController extends Controller
      *   consumes={"multipart/form-data"},
      *   produces={"application/json"},
      * @SWG\Parameter(
+     *       name="Key",
+     *       in="header",
+     *       description="API Key",
+     *       required=true,
+     *       type="string",
+     *       @SWG\Items(type="string")
+     *   ),
+     * @SWG\Parameter(
      *       name="name",
      *       in="formData",
      *       description="User's name",
