@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Validator;
-use Lang;
 
 class LoginController extends Controller
 {
@@ -65,7 +64,7 @@ class LoginController extends Controller
      *       description="API Key",
      *       required=true,
      *       type="string",
-     *       @SWG\Items(type="string")
+     * @SWG\Items(type="string")
      *   ),
      * @SWG\Parameter(
      *       name="email",
@@ -246,7 +245,7 @@ class LoginController extends Controller
      *       description="API Key",
      *       required=true,
      *       type="string",
-     *       @SWG\Items(type="string")
+     * @SWG\Items(type="string")
      *   ),
      * @SWG\Response(response="200", description="{'status':true,'message':{'auth.logout'}}"),
      * )

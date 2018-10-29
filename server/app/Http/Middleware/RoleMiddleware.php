@@ -12,6 +12,7 @@ class RoleMiddleware
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
+     * @param  $role
      * @return mixed
      */
     public function handle($request, Closure $next, $role)

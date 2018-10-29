@@ -37,7 +37,7 @@ class Student extends Authenticatable
 
     public static function validator($input)
     {
-         $validator = Validator::make($input, [
+        $validator = Validator::make($input, [
             'first_name' => 'required|string',
             'last_name' => 'string',
             'email' => 'required|string|email|max:255|unique:students',

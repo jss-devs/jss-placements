@@ -52,7 +52,7 @@ class StudentController extends Controller
      *       description="API Key",
      *       required=true,
      *       type="string",
-     *       @SWG\Items(type="string")
+     * @SWG\Items(type="string")
      *   ),
      * @SWG\Parameter(
      *       name="first_name",
