@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Icon, Input, Button, message } from 'antd';
+import request from 'superagent';
 
 const FormItem = Form.Item;
 
 class SignupForm extends Component {
   state = {
-    passwordVisibile: false
+    passwordVisibile: false,
+    loading: false
   };
 
   handlePasswordVisibility = () => {
@@ -17,12 +19,31 @@ class SignupForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.form.validateFields((error, values) => {
+    this.props.form.validateFields(async (error, values) => {
       if (error) {
         return console.error(error);
       }
-      console.log('Received values of form: ', values);
-      this.props.history.push('/management/placements');
+      this.setState({ loading: true });
+      try {
+        await request
+          .post('http://jss-placements.herokuapp.com/auth/signup')
+          .set('Content-Type', 'application/json')
+          .send({
+            name: values.name,
+            email: values.email,
+            password: values.password,
+            password_confirmation: values.confirmPassword
+          });
+
+        this.props.history.push('/management/placements');
+      } catch (error) {
+        this.setState({ loading: false });
+        if (!error.response) {
+          return message.error('Network Error Occurred, Please try again!');
+        }
+        const resError = error.response.body.error;
+        message.error(Object.values(resError));
+      }
     });
   };
 
@@ -30,6 +51,17 @@ class SignupForm extends Component {
     const { getFieldDecorator, getFieldValue } = this.props.form;
     return (
       <Form onSubmit={this.handleSubmit} noValidate>
+        <FormItem label="Name" style={{ margin: 0 }}>
+          {getFieldDecorator('name', {
+            rules: [{ required: true, message: 'Please enter your name!' }],
+            validateTrigger: false
+          })(
+            <Input
+              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              placeholder=" John Doe"
+            />
+          )}
+        </FormItem>
         <FormItem label="Email" style={{ margin: 0 }}>
           {getFieldDecorator('email', {
             rules: [
@@ -103,7 +135,12 @@ class SignupForm extends Component {
             Already a member?
           </Link>
         </FormItem>
-        <Button type="primary" htmlType="submit" block>
+        <Button
+          type="primary"
+          htmlType="submit"
+          loading={this.state.loading}
+          block
+        >
           Signup
         </Button>
       </Form>
