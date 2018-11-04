@@ -1,0 +1,136 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "job_profile": "Node.js Developer",
+      "description": "We are looking for some highly skilled engineers who have experience of Node.js development",
+      "company_name": "GradeUp",
+      "vacancies": 4,
+      "salary": "5.5 Lakhs",
+      "location": "Noida",
+      "session": "2018",
+      "tpo_id": 1,
+      "closed": false,
+      "attachment": "",
+      "link": "https://gradeup.co"
+    }, {
+      "id": 2,
+      "job_profile": "React Developer",
+      "description": "We are looking for some highly skilled developers who have experience of Web Design and Development",
+      "company_name": "Adobe",
+      "vacancies": 1,
+      "salary": "22 Lakhs",
+      "location": "Noida",
+      "session": "2018",
+      "tpo_id": 2,
+      "closed": false,
+      "attachment": "",
+      "link": "https://gradeup.co"
+    }
+  ],
+  "notices": [
+    {
+      "id": 1,
+      "job_profile": "Node.js Developer",
+      "description": "We are looking for some highly skilled engineers who have experience of Node.js development",
+      "company_name": "GradeUp",
+      "salary": "5.5 Lakhs",
+      "location": "Noida",
+      "status": "rejected",
+      "attachment": "",
+      "link": "https://gradeup.co"
+    }, {
+      "id": 2,
+      "job_profile": "React Developer",
+      "description": "We are looking for some highly skilled developers who have experience of Web Design and Development",
+      "company_name": "Adobe",
+      "salary": "22 Lakhs",
+      "location": "Noida",
+      "status": "pending",
+      "attachment": "",
+      "link": "https://gradeup.co"
+    }
+  ],
+  "notifs": [
+    {
+      "id": 1,
+      "title": "You have been shortlisted for Gradup Round 4",
+      "description": "Congratulations! You have made it to the fourth round of Gradup Recruitments 2018",
+      "job_id": 1,
+      "user_id": 2
+    }, {
+      "id": 2,
+      "title": "You have been shortlisted for Adobe Round 2",
+      "description": "Congratulations! You have made it to the second round of Adobe Recruitments 2018",
+      "job_id": 2,
+      "user_id": 1
+    }
+  ],
+  "rounds": [
+    {
+      "id": 1,
+      "name": "first round",
+      "description": "students eligible for company placement",
+      "job_id": 1,
+      "tpo_id": 1,
+      "active": false,
+      "shortlisted_students": [1, 2]
+    },
+    {
+      "id": 2,
+      "name": "second round",
+      "description": "students shortlisted for second round",
+      "job_id": 1,
+      "tpo_id": 1,
+      "active": true,
+      "shortlisted_students": [2]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "adityaa803@gmail.com",
+      "password": "typicode",
+      "mobile": "+91-9911502984",
+      "dob": "12-02-1997",
+      "first_name": "Aditya",
+      "last_name": "Agarwal",
+      "gender": "male",
+      "father_name": "Neeraj Agarwal",
+      "address": "221 B, Baker Street",
+      "city": "Agra",
+      "state": "Uttar Pradesh",
+      "country": "India",
+      "pin_code": 282010,
+      "roll_no": "1509110010",
+      "branch": "CS",
+      "course": "B. Tech",
+      "tenth_per": 85.3,
+      "twelth_per": 89.6,
+      "ug_per": 73.5,
+      "pg_per": false
+    }, {
+      "id": 2,
+      "email": "ankitjain28may77@gmail.com",
+      "password": "phpisshit",
+      "mobile": "1111222233",
+      "dob": "28-05-1997",
+      "first_name": "Ankit",
+      "last_name": "Jain",
+      "gender": "male",
+      "father_name": "Ankit Father",
+      "address": "a place amid the stars not known to man",
+      "city": "Utopia",
+      "state": "Krypton",
+      "country": "Sakar",
+      "pin_code": 998811,
+      "roll_no": "1509110022",
+      "branch": "CS",
+      "course": "B. Tech",
+      "tenth_per": 65.3,
+      "twelth_per": 44.6,
+      "ug_per": 84.5,
+      "pg_per": false
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tag } from 'antd';
 
-const SelectionStatus = ({ status }) => {
+const SelectionStatus = ({ status, className, ...props }) => {
   const insideText = {
     selected: 'Shortlisted',
     rejected: 'Not Selected',
@@ -14,7 +14,11 @@ const SelectionStatus = ({ status }) => {
   };
   const text = insideText[status];
   const color = textColor[status];
-  return <Tag color={color}>{text}</Tag>;
+  return (
+    <Tag color={color} className={className} {...props}>
+      {text}
+    </Tag>
+  );
 };
 
 export { SelectionStatus };

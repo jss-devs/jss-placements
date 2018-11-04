@@ -12,13 +12,15 @@ class RedirectIfAuthenticated
      *
      * @param  \Illuminate\Http\Request $request
      * @param  \Closure                 $next
-     * @param  string|null              $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+        if (Auth::guard()->check() or Auth::guard('students')->check()) {
+            return response()->json([
+                'status' => false,
+                'error' => trans('auth.logged_in'),
+            ], 403);
         }
 
         return $next($request);

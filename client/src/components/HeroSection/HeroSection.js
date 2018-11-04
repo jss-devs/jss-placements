@@ -3,8 +3,6 @@ import React from 'react';
 import { SignupButton, LoginButton } from '../Button';
 import classes from './HeroSection.module.css';
 
-console.log(classes);
-
 const HeroSection = () => (
   <section className={classes.heroSection}>
     <main className={classes.content}>

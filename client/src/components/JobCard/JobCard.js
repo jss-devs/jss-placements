@@ -1,13 +1,18 @@
 import React from 'react';
-import { Tag } from 'antd';
+
 import classes from './JobCard.module.css';
 import { SelectionStatus } from '../SelectionStatus';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64a2410037f8bf08d639cec3fc6c5ab9f37caa11
 const JobCard = ({
   companyName,
-  post,
+  jobProfile,
   salary,
-  city,
-  content,
+  location,
+  description,
+  status,
   className,
   status,
   ...props
@@ -15,15 +20,19 @@ const JobCard = ({
   <section className={`${classes.jobCard} ${className}`} {...props}>
     <main>
       <h1>{companyName}</h1>
-      <h4>{post}</h4>
+      <h4>{jobProfile}</h4>
     </main>
     <aside>
       <p>{salary}</p>
-      <p>{city}</p>
+      <p>{location}</p>
     </aside>
-    <p>{content}</p>
+    <p>{description}</p>
     <span className={classes.tags}>
+<<<<<<< HEAD
       <SelectionStatus className={classes.antTag} status={status}/>
+=======
+      <SelectionStatus className={classes.antTag} status={status} />
+>>>>>>> 64a2410037f8bf08d639cec3fc6c5ab9f37caa11
     </span>
   </section>
 );

@@ -1,0 +1,10 @@
+.authContainer {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.authCard {
+  min-width: 300px;
+}

@@ -1,15 +1,15 @@
 .noticesContainer {
-  width: min-content;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .noticeCard {
   margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (min-width: 768px) {
   .noticesContainer {
-    width: 100%;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
@@ -17,7 +17,11 @@
 
   
   .noticeCard {
+<<<<<<< HEAD
     
+=======
+    margin-left: 0;
+>>>>>>> 64a2410037f8bf08d639cec3fc6c5ab9f37caa11
     margin-right: 30px;
   }
 }
