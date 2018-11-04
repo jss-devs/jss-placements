@@ -57,7 +57,7 @@ class SignupForm extends Component {
             validateTrigger: false
           })(
             <Input
-              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }}/>}
+              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder=" John Doe"
             />
           )}
