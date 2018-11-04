@@ -23,7 +23,6 @@ class SignupForm extends Component {
       if (error) {
         return console.error(error);
       }
-      console.log('Received values of form: ', values);
       this.setState({ loading: true });
       try {
         await request
