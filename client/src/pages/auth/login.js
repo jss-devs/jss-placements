@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Icon, Input, Button, message } from 'antd';
+import request from 'superagent';
 
 const FormItem = Form.Item;
 
 class LoginForm extends Component {
   state = {
     passwordVisibile: false,
-    loading:false
+    loading: false
   };
 
   handlePasswordVisibility = () => {
@@ -18,7 +19,7 @@ class LoginForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.form.validateFields((error, values) => {
+    this.props.form.validateFields(async (error, values) => {
       if (error) {
         return console.error(error);
       }
@@ -28,12 +29,10 @@ class LoginForm extends Component {
           .post('http://jss-placements.herokuapp.com/auth/login')
           .set('Content-Type', 'application/json')
           .send({
-      
             email: values.email,
-            password: values.password,
-            
+            password: values.password
           });
-         this.props.history.push('/student/notices');
+        this.props.history.push('/student/notices');
       } catch (error) {
         this.setState({ loading: false });
         if (!error.response) {
@@ -96,7 +95,12 @@ class LoginForm extends Component {
             Forgot password
           </Link>
         </FormItem>
-        <Button type="primary" htmlType="submit" block loading={this.state.loading}>
+        <Button
+          type="primary"
+          htmlType="submit"
+          block
+          loading={this.state.loading}
+        >
           Log in
         </Button>
       </Form>
