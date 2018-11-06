@@ -22,7 +22,6 @@ class LoginForm extends Component {
       if (error) {
         return console.error(error);
       }
-      this.props.history.push('/student/notices');
        this.setState({ loading: true });
       try {
         await request
