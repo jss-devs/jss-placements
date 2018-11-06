@@ -22,7 +22,7 @@ class LoginForm extends Component {
       if (error) {
         return console.error(error);
       }
-       this.setState({ loading: true });
+      this.setState({ loading: true });
       try {
         await request
           .post('http://jss-placements.herokuapp.com/auth/login')
