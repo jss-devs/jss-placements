@@ -6,7 +6,8 @@ const FormItem = Form.Item;
 
 class LoginForm extends Component {
   state = {
-    passwordVisibile: false
+    passwordVisibile: false,
+    loading:false
   };
 
   handlePasswordVisibility = () => {
@@ -21,8 +22,26 @@ class LoginForm extends Component {
       if (error) {
         return console.error(error);
       }
-      console.log('Received values of form: ', values);
-      this.props.history.push('/student/notices');
+      this.setState({ loading: true });
+      try {
+        await request
+          .post('http://jss-placements.herokuapp.com/auth/login')
+          .set('Content-Type', 'application/json')
+          .send({
+      
+            email: values.email,
+            password: values.password,
+            
+          });
+         this.props.history.push('/student/notices');
+      } catch (error) {
+        this.setState({ loading: false });
+        if (!error.response) {
+          return message.error('Network Error Occurred, Please try again!');
+        }
+        const resError = error.response.body.error;
+        message.error(Object.values(resError));
+      }
     });
   };
 
@@ -77,7 +96,7 @@ class LoginForm extends Component {
             Forgot password
           </Link>
         </FormItem>
-        <Button type="primary" htmlType="submit" block>
+        <Button type="primary" htmlType="submit" block loading={this.state.loading}>
           Log in
         </Button>
       </Form>
