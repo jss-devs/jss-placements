@@ -33,7 +33,7 @@ class LoginForm extends Component {
             password: values.password,
             
           });
-         this.props.history.push('/management/placements');
+         this.props.history.push('/student/notices');
       } catch (error) {
         this.setState({ loading: false });
         if (!error.response) {
