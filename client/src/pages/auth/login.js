@@ -31,7 +31,7 @@ class LoginForm extends Component {
                                 .set('Content-Type', 'application/json')
                                 .send({
 
-                                        email: values.email,
+                                      email:values.email,
                                         password: values.password,
 
                                     }
