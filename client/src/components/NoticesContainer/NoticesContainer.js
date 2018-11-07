@@ -3,6 +3,9 @@ import request from 'superagent';
 
 import classes from './NoticesContainer.module.css';
 import { JobCard } from '../JobCard';
+import { UserContext } from '../../contexts';
+
+const UserConsumer = UserContext.Consumer;
 
 class NoticesContainer extends Component {
   state = {
@@ -45,11 +48,15 @@ class NoticesContainer extends Component {
 
   render() {
     return (
-      <section className={classes.noticesContainer}>
-        {this.state.notices.map(notice => (
-          <JobCard key={notice.id} className={classes.noticeCard} {...notice} />
-        ))}
-      </section>
+      <UserConsumer>
+        {({ user }) => (
+          <section className={classes.noticesContainer}>
+            {this.state.notices.map(notice => (
+              <JobCard key={notice.id} className={classes.noticeCard} {...notice} />
+            ))}
+          </section>
+        )}
+      </UserConsumer>
     );
   }
 }
