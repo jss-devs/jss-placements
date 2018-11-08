@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { Form, Icon, Input, Button, message } from 'antd';
 import request from 'superagent';
 
+import { UserContext } from '../../contexts';
+
+const UserConsumer = UserContext.Consumer;
 const FormItem = Form.Item;
 
 class SignupForm extends Component {
@@ -25,7 +28,7 @@ class SignupForm extends Component {
       }
       this.setState({ loading: true });
       try {
-        await request
+        const res = await request
           .post('http://jss-placements.herokuapp.com/auth/signup')
           .set('Content-Type', 'application/json')
           .send({
@@ -34,7 +37,7 @@ class SignupForm extends Component {
             password: values.password,
             password_confirmation: values.confirmPassword
           });
-
+        this.props.updateUser(res.body.data);
         this.props.history.push('/management/placements');
       } catch (error) {
         this.setState({ loading: false });
@@ -148,6 +151,12 @@ class SignupForm extends Component {
   }
 }
 
-const Signup = Form.create()(SignupForm);
+const SignupSection = (props) => (
+  <UserConsumer>
+    {({ updateUser }) => <SignupForm updateUser={updateUser} {...props} />}
+  </UserConsumer>
+)
+
+const Signup = Form.create()(SignupSection);
 
 export { Signup };

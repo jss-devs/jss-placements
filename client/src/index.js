@@ -4,10 +4,13 @@ import 'antd/dist/antd.css';
 
 import './index.css';
 import { Pages } from './pages';
+import { UserService } from './components/UserService';
 
 const App = () => (
   <div className="app">
-    <Pages />
+    <UserService>
+      <Pages />
+    </UserService>
   </div>
 );
 

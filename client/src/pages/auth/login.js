@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { Form, Icon, Input, Button, message } from 'antd';
 import request from 'superagent';
 
+import { UserContext } from '../../contexts';
+
+const UserConsumer = UserContext.Consumer;
 const FormItem = Form.Item;
 
 class LoginForm extends Component {
@@ -25,16 +28,16 @@ class LoginForm extends Component {
       }
       this.setState({ loading: true });
       try {
-        await request
+        const res = await request
           .post('http://jss-placements.herokuapp.com/auth/login')
+          .withCredentials()
           .set('Content-Type', 'application/json')
-          .send({
-            email: values.email,
-            password: values.password
-          });
+          .send(values);
+        this.props.updateUser(res.body.data);
         this.props.history.push('/student/notices');
       } catch (error) {
         this.setState({ loading: false });
+        console.log(error);
         if (!error.response) {
           return message.error('Network Error Occurred, Please try again!');
         }
@@ -108,6 +111,12 @@ class LoginForm extends Component {
   }
 }
 
-const Login = Form.create()(LoginForm);
+const LoginSection = (props) => (
+  <UserConsumer>
+    {({ updateUser }) => <LoginForm updateUser={updateUser} {...props} />}
+  </UserConsumer>
+)
+
+const Login = Form.create()(LoginSection);
 
 export { Login };
